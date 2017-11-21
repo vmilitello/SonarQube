@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  sonar-service:
+    image: militellovinx/sonarqube:latest
+    restart: "unless-stopped"
+    ports:
+      - 9000:9000
+    environment:
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
+      - SONARQUBE_LDAP_ENABLE=true
+      - SONARQUBE_BASE_DN=dc=foo,dc=com
+      - SONARQUBE_REALM=foo.com
+      - SONARQUBE_LDAP_URL=ldap://fooserver:389
+      - SONARQUBE_LDAP_BINDDN=administrator@foo.com
+      - SONARQUBE_LDAP_PASSWORD=P4ssW0rd1!
